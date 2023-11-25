@@ -1,8 +1,11 @@
 def solution(n, lost, reserve):
     answer = 0
+    lost.sort()
+    reserve.sort()
     inter =  set(lost).intersection(set(reserve))
-    lost =list(set(lost)-inter)
-    reserve = list(set(reserve)-inter)
+    for i in inter:
+        lost.remove(i)
+        reserve.remove(i)
     print(lost,reserve)    
     copy_lost = lost.copy()
     
